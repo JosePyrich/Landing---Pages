@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion'
 
-const ScrollAnimation = ({ 
-  children, 
-  delay = 0, 
+const ScrollAnimation = ({
+  children,
+  delay = 0,
   direction = 'up',
-  duration = 0.6 
+  duration = 0.6,
+  blur = false,
+  stagger = false,
 }) => {
   const variants = {
     hidden: {
@@ -12,12 +14,14 @@ const ScrollAnimation = ({
       y: direction === 'up' ? 50 : direction === 'down' ? -50 : 0,
       x: direction === 'left' ? 50 : direction === 'right' ? -50 : 0,
       scale: direction === 'scale' ? 0.8 : 1,
+      filter: blur ? 'blur(10px)' : 'blur(0px)',
     },
     visible: {
       opacity: 1,
       y: 0,
       x: 0,
       scale: 1,
+      filter: 'blur(0px)',
       transition: {
         duration: duration,
         delay: delay,
@@ -30,7 +34,7 @@ const ScrollAnimation = ({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: false, amount: 0.3 }}
       variants={variants}
     >
       {children}
@@ -39,4 +43,3 @@ const ScrollAnimation = ({
 }
 
 export default ScrollAnimation
-

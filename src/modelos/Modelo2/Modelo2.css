@@ -16,6 +16,7 @@
   width: 100%;
   min-height: 100vh;
   background: var(--neutral-cream);
+  overflow-x: hidden;
 }
 
 /* Header */

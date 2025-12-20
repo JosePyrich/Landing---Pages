@@ -1,13 +1,15 @@
 /* Paleta de cores baseada na imagem - versão mais forte e escura */
 :root {
-  --sage-light: #b8d4b8;
+  --sage-light: #9ba187;
   --sage-medium: #4a5f4a;
   --sage-dark: #3d4f3d;
   --sage-ebony: #2a3325;
   --terracotta-light: #d4a082;
+  --terracotta-light2: #b66c48;
   --terracotta-medium: #7a4528;
+  --terracotta-medium2: #8c421f;
   --terracotta-dark: #5d341f;
-  --neutral-cream: #ffffff;
+  --neutral-cream: #e8dacb;
   --neutral-beige: #e5e1d8;
   --neutral-tan: #d8d4ca;
 }
@@ -28,7 +30,7 @@
   top: 0;
   z-index: 100;
   backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--neutral-cream);
 }
 
 .header .container {
@@ -41,12 +43,13 @@
 }
 
 .logo {
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 34px;
+  font-weight: 500;
   color: var(--sage-ebony);
   letter-spacing: -0.5px;
   position: relative;
   transition: all 0.3s ease;
+  font-family: 'The Seasons', 'Playfair Display', serif;
 }
 
 .logo::after {
@@ -329,6 +332,7 @@
   letter-spacing: -1px;
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
   animation: titleGlow 3s ease-in-out infinite alternate;
+  font-family: 'Questrial', sans-serif;
 }
 
 @keyframes titleGlow {
@@ -478,6 +482,7 @@ section::before {
   color: var(--sage-ebony);
   margin-bottom: 25px;
   letter-spacing: -1px;
+  font-family: 'Questrial', sans-serif;
 }
 
 .section-intro {
@@ -502,8 +507,8 @@ section::before {
 }
 
 .tab-button {
-  background: white;
-  border: 2px solid var(--sage-medium);
+  background: var(--neutral-cream);
+  border: 2px solid var(--terracotta-medium2);
   padding: 25px 20px;
   border-radius: 16px;
   cursor: pointer;
@@ -597,6 +602,7 @@ section::before {
   font-size: 36px;
   color: var(--sage-ebony);
   margin-bottom: 20px;
+  font-family: 'Questrial', sans-serif;
 }
 
 .detail-description {
@@ -865,6 +871,7 @@ section::before {
 .visual-box h3 {
   font-size: 42px;
   margin-bottom: 25px;
+  font-family: 'Questrial', sans-serif;
 }
 
 .visual-box p {
@@ -895,6 +902,7 @@ section::before {
   font-size: 20px;
   color: var(--sage-ebony);
   margin-bottom: 12px;
+  font-family: 'Questrial', sans-serif;
 }
 
 .qualificacao-card p {
@@ -907,7 +915,7 @@ section::before {
 .qualificacao-card .since {
   color: var(--terracotta-medium);
   font-weight: 600;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .qualificacao-card ul {
@@ -951,6 +959,7 @@ section::before {
 .footer-main h3 {
   font-size: 28px;
   margin-bottom: 15px;
+  font-family: 'The Seasons', 'Playfair Display', serif;
 }
 
 .footer-subtitle {

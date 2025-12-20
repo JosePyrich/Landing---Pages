@@ -131,7 +131,7 @@ const Modelo2 = () => {
                       <span className="button-shimmer"></span>
                     </motion.a>
                     <motion.a
-                      href="https://wa.me/554187144411"
+                      href="https://wa.me/554184319896"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="cta-button secondary"
@@ -353,7 +353,9 @@ const Modelo2 = () => {
                 <ScrollAnimation direction="left" delay={0.2}>
                   <div className="qualificacao-card">
                     <h4>Formação Acadêmica</h4>
-                    <p>Graduação em Medicina - Faculdades Pequeno Príncipe</p>
+                    <p className="since">
+                      <></>Graduação em Medicina - Faculdades Pequeno Príncipe
+                    </p>
                     <p className="since">
                       Residência Médica em Ginecologia e Obstetrícia - Hospital
                       de Clínicas (UFPR)
@@ -418,7 +420,7 @@ const Modelo2 = () => {
 
             <div className="footer-contact">
               <motion.a
-                href="https://wa.me/554187144411"
+                href="https://wa.me/554184319896"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="whatsapp-button"

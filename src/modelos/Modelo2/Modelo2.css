@@ -23,14 +23,12 @@
 
 /* Header */
 .header {
-  background: white;
+  background: var(--neutral-cream);
   padding: 25px 0;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 0;
   z-index: 100;
-  backdrop-filter: blur(10px);
-  background: var(--neutral-cream);
 }
 
 .header .container {
@@ -150,6 +148,8 @@
   background: rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   pointer-events: none;
+  will-change: transform, opacity;
+  animation: float 4s ease-in-out infinite;
 }
 
 .particle:nth-child(odd) {
@@ -164,6 +164,34 @@
 .particle:nth-child(5n) {
   width: 3px;
   height: 3px;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(10px, -30px);
+    opacity: 0.7;
+  }
+}
+
+.particle:nth-child(even) {
+  animation-name: float-reverse;
+}
+
+@keyframes float-reverse {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(-10px, -30px);
+    opacity: 0.7;
+  }
 }
 
 .hero-grid {
@@ -333,6 +361,7 @@
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
   animation: titleGlow 3s ease-in-out infinite alternate;
   font-family: 'Questrial', sans-serif;
+  will-change: text-shadow;
 }
 
 @keyframes titleGlow {
@@ -374,12 +403,14 @@
   font-weight: 600;
   border-radius: 50px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease,
+    box-shadow 0.3s ease;
   border: 2px solid transparent;
   position: relative;
   overflow: hidden;
   display: inline-block;
   text-decoration: none;
+  will-change: transform;
 }
 
 .cta-button.primary {
@@ -390,7 +421,7 @@
 
 .cta-button.primary:hover {
   background: var(--terracotta-dark);
-  transform: translateY(-3px);
+  transform: translateY(-3px) translateZ(0);
   box-shadow: 0 8px 30px rgba(176, 113, 70, 0.45);
 }
 
@@ -403,7 +434,7 @@
 .cta-button.secondary:hover {
   background: white;
   color: var(--sage-ebony);
-  transform: translateY(-3px);
+  transform: translateY(-3px) translateZ(0);
 }
 
 .button-text {
@@ -512,13 +543,15 @@ section::before {
   padding: 25px 20px;
   border-radius: 16px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease,
+    border-color 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
   position: relative;
   overflow: hidden;
+  will-change: transform;
 }
 
 .tab-button::before {
@@ -543,7 +576,7 @@ section::before {
 .tab-button:hover {
   background: var(--sage-light);
   border-color: var(--terracotta-medium);
-  transform: translateY(-5px);
+  transform: translateY(-5px) translateZ(0);
   box-shadow: 0 8px 25px rgba(122, 69, 40, 0.2);
 }
 
@@ -551,7 +584,7 @@ section::before {
   background: var(--terracotta-medium);
   border-color: var(--terracotta-medium);
   color: white;
-  transform: translateY(-5px);
+  transform: translateY(-5px) translateZ(0);
   box-shadow: 0 10px 30px rgba(122, 69, 40, 0.4);
 }
 
@@ -629,10 +662,12 @@ section::before {
   font-weight: 600;
   border-radius: 50px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease,
+    box-shadow 0.3s ease;
   box-shadow: 0 4px 15px rgba(122, 69, 40, 0.3);
   position: relative;
   overflow: hidden;
+  will-change: transform;
 }
 
 .detail-button::after {
@@ -660,7 +695,7 @@ section::before {
 
 .detail-button:hover {
   background: var(--terracotta-dark);
-  transform: translateY(-2px);
+  transform: translateY(-2px) translateZ(0);
   box-shadow: 0 6px 20px rgba(122, 69, 40, 0.4);
 }
 
@@ -702,6 +737,7 @@ section::before {
   z-index: -1;
   opacity: 0;
   transition: opacity 0.3s ease;
+  will-change: background-position, opacity;
 }
 
 .visual-card:hover::before {
@@ -749,9 +785,8 @@ section::before {
 }
 
 .depoimentos .section-label {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.2);
   color: var(--neutral-beige);
-  backdrop-filter: blur(10px);
 }
 
 .depoimentos-grid {
@@ -766,9 +801,10 @@ section::before {
   padding: 40px 30px;
   border-radius: 16px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
+  will-change: transform;
 }
 
 .depoimento-card::before {
@@ -792,7 +828,7 @@ section::before {
 }
 
 .depoimento-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-5px) translateZ(0);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
@@ -851,6 +887,7 @@ section::before {
     transparent 70%
   );
   animation: rotate 20s linear infinite;
+  will-change: transform;
 }
 
 @keyframes rotate {
@@ -979,10 +1016,9 @@ section::before {
 }
 
 .location-card {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
   padding: 25px;
   border-radius: 12px;
-  backdrop-filter: blur(10px);
 }
 
 .location-card h4 {
@@ -1007,10 +1043,29 @@ section::before {
   text-decoration: none;
   font-weight: 600;
   font-size: 18px;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease,
+    box-shadow 0.3s ease;
   margin-bottom: 15px;
   position: relative;
   overflow: hidden;
+  will-change: transform;
+}
+
+.whatsapp-icon {
+  animation: whatsapp-pulse 2s ease-in-out infinite;
+}
+
+@keyframes whatsapp-pulse {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
 }
 
 .whatsapp-button::before {
@@ -1033,14 +1088,8 @@ section::before {
 
 .whatsapp-button:hover {
   background: #20ba5a;
-  transform: translateY(-3px);
+  transform: translateY(-3px) translateZ(0);
   box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-}
-
-.whatsapp-icon {
-  font-size: 24px;
-  display: flex;
-  align-items: center;
 }
 
 .footer-note {

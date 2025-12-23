@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo, useCallback } from 'react'
 import './Modelo2.css'
 import {
   Stethoscope,
@@ -8,56 +8,95 @@ import {
   UsersRound,
 } from 'lucide-react'
 import { FaWhatsapp } from 'react-icons/fa'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import ScrollAnimation from '../../components/ScrollAnimation'
 
 import beatrizImage from '../../public/ee8b3e9d-5a03-453d-8e6d-7dfde1208d02_large.jpg'
 
+// Componentes de ícone memoizados para evitar recriação
+const IconStethoscope = React.memo(() => <Stethoscope strokeWidth={1.5} />)
+const IconSnowflake = React.memo(() => <Snowflake strokeWidth={1.5} />)
+const IconSyringe = React.memo(() => <Syringe strokeWidth={1.5} />)
+const IconSprout = React.memo(() => <Sprout strokeWidth={1.5} />)
+const IconUsersRound = React.memo(() => <UsersRound strokeWidth={1.5} />)
+
+IconStethoscope.displayName = 'IconStethoscope'
+IconSnowflake.displayName = 'IconSnowflake'
+IconSyringe.displayName = 'IconSyringe'
+IconSprout.displayName = 'IconSprout'
+IconUsersRound.displayName = 'IconUsersRound'
+
 const Modelo2 = () => {
   const [activeTreatment, setActiveTreatment] = useState(0)
 
-  const tratamentos = [
-    {
-      icon: <Stethoscope strokeWidth={1.5} />,
-      title: 'Avaliação da fertilidade feminina e masculina',
-      description:
-        'Fornecemos informações importantes como preço, valor e duração dos serviços.',
-      details:
-        'Fornecemos informações importantes como preço, valor e duração dos serviços para que você possa tomar decisões informadas sobre sua saúde reprodutiva.',
-    },
-    {
-      icon: <Snowflake strokeWidth={1.5} />,
-      title: 'Congelamento de óvulos',
-      description:
-        'Estratégia eficaz para mulheres e casais planejarem maternidade e paternidade com segurança.',
-      details:
-        'O congelamento de óvulos é uma estratégia eficaz para mulheres e casais planejarem sua maternidade e paternidade com segurança, preservando a fertilidade para o futuro.',
-    },
-    {
-      icon: <Syringe strokeWidth={1.5} />,
-      title: 'Tratamentos de Reprodução Assistida',
-      description:
-        'Técnicas como indução da ovulação, inseminação intrauterina (IIU) e fertilização in vitro (FIV).',
-      details:
-        'Oferecemos uma gama completa de tratamentos de reprodução assistida, incluindo técnicas como indução da ovulação, inseminação intrauterina (IIU) e fertilização in vitro (FIV), sempre com acompanhamento personalizado e cuidado especializado.',
-    },
-    {
-      icon: <Sprout strokeWidth={1.5} />,
-      title: 'Jornada Reprodutiva',
-      description:
-        'Oferecemos não apenas tratamentos, mas também acolhimento, escuta e suporte para os desafios emocionais da infertilidade.',
-      details:
-        'Entendemos que a jornada reprodutiva vai além dos tratamentos. Oferecemos acolhimento, escuta ativa e suporte emocional para enfrentar os desafios da infertilidade, cuidando de você de forma integral.',
-    },
-    {
-      icon: <UsersRound strokeWidth={1.5} />,
-      title: 'Reprodução Assistida em Casais Homoafetivos',
-      description:
-        'Suporte especializado para casais homoafetivos, incluindo IIU, FIV e técnica ROPA para casais femininos compartilharem a gestação.',
-      details:
-        'Oferecemos suporte especializado e acolhedor para casais homoafetivos, com técnicas como inseminação intrauterina (IIU), fertilização in vitro (FIV) e a técnica ROPA, que permite que casais femininos compartilhem a gestação de forma única e especial.',
-    },
-  ]
+  // Memoização do array de tratamentos para evitar recriação a cada render
+  const tratamentos = useMemo(
+    () => [
+      {
+        icon: <IconStethoscope />,
+        title: 'Avaliação da fertilidade feminina e masculina',
+        description:
+          'Fornecemos informações importantes como preço, valor e duração dos serviços.',
+        details:
+          'Fornecemos informações importantes como preço, valor e duração dos serviços para que você possa tomar decisões informadas sobre sua saúde reprodutiva.',
+      },
+      {
+        icon: <IconSnowflake />,
+        title: 'Congelamento de óvulos',
+        description:
+          'Estratégia eficaz para mulheres e casais planejarem maternidade e paternidade com segurança.',
+        details:
+          'O congelamento de óvulos é uma estratégia eficaz para mulheres e casais planejarem sua maternidade e paternidade com segurança, preservando a fertilidade para o futuro.',
+      },
+      {
+        icon: <IconSyringe />,
+        title: 'Tratamentos de Reprodução Assistida',
+        description:
+          'Técnicas como indução da ovulação, inseminação intrauterina (IIU) e fertilização in vitro (FIV).',
+        details:
+          'Oferecemos uma gama completa de tratamentos de reprodução assistida, incluindo técnicas como indução da ovulação, inseminação intrauterina (IIU) e fertilização in vitro (FIV), sempre com acompanhamento personalizado e cuidado especializado.',
+      },
+      {
+        icon: <IconSprout />,
+        title: 'Jornada Reprodutiva',
+        description:
+          'Oferecemos não apenas tratamentos, mas também acolhimento, escuta e suporte para os desafios emocionais da infertilidade.',
+        details:
+          'Entendemos que a jornada reprodutiva vai além dos tratamentos. Oferecemos acolhimento, escuta ativa e suporte emocional para enfrentar os desafios da infertilidade, cuidando de você de forma integral.',
+      },
+      {
+        icon: <IconUsersRound />,
+        title: 'Reprodução Assistida em Casais Homoafetivos',
+        description:
+          'Suporte especializado para casais homoafetivos, incluindo IIU, FIV e técnica ROPA para casais femininos compartilharem a gestação.',
+        details:
+          'Oferecemos suporte especializado e acolhedor para casais homoafetivos, com técnicas como inseminação intrauterina (IIU), fertilização in vitro (FIV) e a técnica ROPA, que permite que casais femininos compartilhem a gestação de forma única e especial.',
+      },
+    ],
+    [],
+  )
+
+  // Handler memoizado para evitar recriação
+  const handleTreatmentChange = useCallback((index) => {
+    setActiveTreatment(index)
+  }, [])
+
+  // Partículas memoizadas para evitar recriação
+  const particles = useMemo(
+    () =>
+      [...Array(12)].map((_, i) => (
+        <div
+          key={i}
+          className="particle"
+          style={{
+            left: `${(i * 8.33) % 100}%`,
+            top: `${(i * 7.69) % 100}%`,
+            animationDelay: `${i * 0.3}s`,
+          }}
+        />
+      )),
+    [],
+  )
 
   return (
     <div className="modelo2">
@@ -65,12 +104,22 @@ const Modelo2 = () => {
       <header className="header">
         <div className="container">
           <div className="logo">Dr. Beatriz Pyrich</div>
-          <nav className="nav">
-            <a href="#home">Home</a>
-            <a href="#tratamentos">Tratamentos</a>
-            <a href="#depoimentos">Depoimentos</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#contato">Contato</a>
+          <nav className="nav" aria-label="Navegação principal">
+            <a href="#home" aria-label="Ir para seção inicial">
+              Home
+            </a>
+            <a href="#tratamentos" aria-label="Ver áreas de atuação">
+              Areas de Atuação
+            </a>
+            <a href="#depoimentos" aria-label="Ver depoimentos de pacientes">
+              Depoimentos
+            </a>
+            <a href="#sobre" aria-label="Sobre a Dra. Beatriz Pyrich">
+              Dra. Beatriz Pyrich Cavalheiro
+            </a>
+            <a href="#contato" aria-label="Entre em contato">
+              Contato
+            </a>
           </nav>
         </div>
       </header>
@@ -79,71 +128,49 @@ const Modelo2 = () => {
       <section id="home" className="hero">
         <div className="hero-background">
           <div className="hero-overlay"></div>
-          <div className="hero-particles">
-            {[...Array(20)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="particle"
-                animate={{
-                  y: [0, -30, 0],
-                  x: [0, Math.random() * 20 - 10, 0],
-                  opacity: [0.3, 0.7, 0.3],
-                }}
-                transition={{
-                  duration: 3 + Math.random() * 2,
-                  repeat: Infinity,
-                  delay: Math.random() * 2,
-                  ease: 'easeInOut',
-                }}
-              />
-            ))}
+          <div className="hero-particles" aria-hidden="true">
+            {particles}
           </div>
         </div>
         <div className="container">
           <div className="hero-grid">
-            <ScrollAnimation direction="up" delay={0.2} blur={true}>
+            <ScrollAnimation direction="up" delay={0.2}>
               <div className="hero-content">
-                <ScrollAnimation direction="up" delay={0.4}>
-                  <h1 className="hero-title">
-                    Cuidando da sua saude reprodutiva com ciencia e acolhimento
-                  </h1>
-                </ScrollAnimation>
-                <ScrollAnimation direction="up" delay={0.5}>
-                  <p className="hero-subtitle">
-                    Com <strong>excelência técnica</strong>,{' '}
-                    <strong>humanização</strong> e{' '}
-                    <strong>cuidado integral</strong>, acompanhamos sua jornada
-                    reprodutiva com dedicação e empatia.
-                  </p>
-                </ScrollAnimation>
-                <ScrollAnimation direction="up" delay={0.6}>
-                  <div className="hero-buttons">
-                    <motion.a
-                      href="https://www.doctoralia.com.br/beatriz-pyrich-cavalheiro/ginecologista/curitiba"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="cta-button primary"
-                      whileHover={{ scale: 1.05, y: -3 }}
-                      whileTap={{ scale: 0.95 }}
-                      transition={{ type: 'spring', stiffness: 400 }}
-                    >
-                      <span className="button-text">Agende uma consulta</span>
-                      <span className="button-shimmer"></span>
-                    </motion.a>
-                    <motion.a
-                      href="https://wa.me/554184319896"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="cta-button secondary"
-                      whileHover={{ scale: 1.05, y: -3 }}
-                      whileTap={{ scale: 0.95 }}
-                      transition={{ type: 'spring', stiffness: 400 }}
-                    >
-                      <span className="button-text">Entre em contato</span>
-                      <span className="button-shimmer"></span>
-                    </motion.a>
-                  </div>
-                </ScrollAnimation>
+                <h1 className="hero-title">
+                  Cuidando da sua saude reprodutiva com ciencia e acolhimento
+                </h1>
+                <p className="hero-subtitle">
+                  Com <strong>excelência técnica</strong>,{' '}
+                  <strong>humanização</strong> e{' '}
+                  <strong>cuidado integral</strong>, acompanhamos sua jornada
+                  reprodutiva com dedicação e empatia.
+                </p>
+                <div className="hero-buttons">
+                  <motion.a
+                    href="https://www.doctoralia.com.br/beatriz-pyrich-cavalheiro/ginecologista/curitiba"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cta-button primary"
+                    whileHover={{ scale: 1.05, y: -3 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+                  >
+                    <span className="button-text">Agende uma consulta</span>
+                    <span className="button-shimmer"></span>
+                  </motion.a>
+                  <motion.a
+                    href="https://wa.me/554184319896"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cta-button secondary"
+                    whileHover={{ scale: 1.05, y: -3 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+                  >
+                    <span className="button-text">Entre em contato</span>
+                    <span className="button-shimmer"></span>
+                  </motion.a>
+                </div>
               </div>
             </ScrollAnimation>
             <ScrollAnimation direction="left" delay={0.4}>
@@ -163,6 +190,10 @@ const Modelo2 = () => {
                     src={beatrizImage}
                     alt="Dra. Beatriz Pyrich Cavalheiro - Ginecologista e Obstetra"
                     className="hero-img"
+                    width={500}
+                    height={600}
+                    loading="lazy"
+                    decoding="async"
                     onError={(e) => {
                       e.target.style.display = 'none'
                       e.target.nextSibling.style.display = 'block'
@@ -212,7 +243,8 @@ const Modelo2 = () => {
                   className={`tab-button ${
                     activeTreatment === index ? 'active' : ''
                   }`}
-                  onClick={() => setActiveTreatment(index)}
+                  onClick={() => handleTreatmentChange(index)}
+                  aria-label={`Ver tratamento: ${tratamento.title}`}
                 >
                   <span className="tab-icon">{tratamento.icon}</span>
                   <span className="tab-title">{tratamento.title}</span>
@@ -250,23 +282,17 @@ const Modelo2 = () => {
         <div className="container">
           <ScrollAnimation direction="up" delay={0.1}>
             <div className="section-header">
-              <ScrollAnimation direction="up" delay={0.2}>
-                <span className="section-label">
-                  O que dizem nossos pacientes
-                </span>
-              </ScrollAnimation>
-              <ScrollAnimation direction="up" delay={0.3}>
-                <h2 className="section-title">Depoimentos</h2>
-              </ScrollAnimation>
-              <ScrollAnimation direction="up" delay={0.4}>
-                <p className="section-intro">
-                  Atendo mulheres e casais que buscam investigação e tratamento
-                  da infertilidade, oferecendo acompanhamento individualizado e
-                  cuidado fundamentado nas melhores evidências científicas. Meu
-                  propósito é oferecer uma consulta precisa, acolhedora e guiada
-                  pela ciência.
-                </p>
-              </ScrollAnimation>
+              <span className="section-label">
+                O que dizem nossos pacientes
+              </span>
+              <h2 className="section-title">Depoimentos</h2>
+              <p className="section-intro">
+                Atendo mulheres e casais que buscam investigação e tratamento da
+                infertilidade, oferecendo acompanhamento individualizado e
+                cuidado fundamentado nas melhores evidências científicas. Meu
+                propósito é oferecer uma consulta precisa, acolhedora e guiada
+                pela ciência.
+              </p>
             </div>
           </ScrollAnimation>
 
@@ -412,9 +438,7 @@ const Modelo2 = () => {
           <div className="footer-content">
             <div className="footer-main">
               <h3>Dra. Beatriz Pyrich Cavalheiro</h3>
-              <p className="footer-subtitle">
-                Ginecologista especialista em Reprodução Humana Assistida
-              </p>
+
               <p className="footer-credentials">CRM-PR 47192 | RQE 36055</p>
             </div>
 
@@ -426,34 +450,11 @@ const Modelo2 = () => {
                 className="whatsapp-button"
                 whileHover={{ scale: 1.05, y: -3 }}
                 whileTap={{ scale: 0.95 }}
-                animate={{
-                  boxShadow: [
-                    '0 0 0 0 rgba(37, 211, 102, 0.4)',
-                    '0 0 0 10px rgba(37, 211, 102, 0)',
-                    '0 0 0 0 rgba(37, 211, 102, 0)',
-                  ],
-                }}
-                transition={{
-                  boxShadow: {
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: 'easeInOut',
-                  },
-                }}
+                transition={{ type: 'spring', stiffness: 400, damping: 25 }}
               >
-                <motion.span
-                  className="whatsapp-icon"
-                  animate={{
-                    rotate: [0, 10, -10, 0],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: 'easeInOut',
-                  }}
-                >
+                <span className="whatsapp-icon">
                   <FaWhatsapp />
-                </motion.span>
+                </span>
                 Entre em contato
               </motion.a>
               <p className="footer-note">Agende sua consulta via WhatsApp</p>

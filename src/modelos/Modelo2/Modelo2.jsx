@@ -114,8 +114,8 @@ const Modelo2 = () => {
             <a href="#depoimentos" aria-label="Ver depoimentos de pacientes">
               Depoimentos
             </a>
-            <a href="#sobre" aria-label="Sobre a Dra. Beatriz Pyrich">
-              Dra. Beatriz Pyrich Cavalheiro
+            <a href="#sobre" aria-label="Experiência da Dra. Beatriz Pyrich">
+              Experiência
             </a>
             <a href="#contato" aria-label="Entre em contato">
               Contato
@@ -462,9 +462,7 @@ const Modelo2 = () => {
           </div>
 
           <div className="footer-bottom">
-            <p>
-              Copyright © 2025 Syntexa Code Ltda. Todos os direitos reservados.
-            </p>
+            <p>Copyright © 2025 Jose Pyrich. Todos os direitos reservados.</p>
           </div>
         </div>
       </footer>

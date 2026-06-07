@@ -34,28 +34,22 @@ const Modelo2 = () => {
     () => [
       {
         icon: <IconStethoscope />,
-        title: 'Avaliação da fertilidade feminina e masculina',
+        title: 'Investigação de infertilidade ',
         description:
-          'Fornecemos informações importantes como preço, valor e duração dos serviços.',
-        details:
-          'Fornecemos informações importantes como preço, valor e duração dos serviços para que você possa tomar decisões informadas sobre sua saúde reprodutiva.',
+          'Respostas claras para o desejo de engravidar. Quando a gestação não acontece naturalmente, o primeiro passo não é o tratamento, mas o diagnóstico preciso. Realizamos uma investigação do casal, unindo exames de reserva ovariana, permeabilidade tubária e fator masculino. O objetivo é identificar a causa e traçar a estratégia mais eficaz e segura para o seu caso.',
       },
       {
         icon: <IconSnowflake />,
-        title: 'Congelamento de óvulos',
+        title: 'Preservação da fertilidade',
         description:
-          'Estratégia eficaz para mulheres e casais planejarem maternidade e paternidade com segurança.',
-        details:
-          'O congelamento de óvulos é uma estratégia eficaz para mulheres e casais planejarem sua maternidade e paternidade com segurança, preservando a fertilidade para o futuro.',
+          'O seu futuro no seu tempo. A biologia tem um cronograma, mas a sua vida também. Por meio da técnica de vitrificação, preservamos a qualidade dos seus óvulos hoje para que a decisão de ser mãe aconteça quando você se sentir pronta — seja por motivos de carreira, escolha pessoal ou saúde. O congelamento de óvulos é a liberdade de não precisar apressar os seus sonhos.',
       },
       {
         icon: <IconSyringe />,
-        title: 'Tratamentos de Reprodução Assistida',
+        title: 'Gestação em casais homoafetivos',
         description:
-          'Técnicas como indução da ovulação, inseminação intrauterina (IIU) e fertilização in vitro (FIV).',
-        details:
-          'Oferecemos uma gama completa de tratamentos de reprodução assistida, incluindo técnicas como indução da ovulação, inseminação intrauterina (IIU) e fertilização in vitro (FIV), sempre com acompanhamento personalizado e cuidado especializado.',
-      },
+          'Novos caminhos para formar a sua família. A ciência existe para tornar possíveis todas as formas de amor. Através de protocolos personalizados para casais homoafetivos femininos (como a técnica ROPA) e masculinos (com doação de óvulos e útero de substituição), desenhamos o percurso necessário para que o sonho da parentalidade se torne realidade.',      
+        },
       {
         icon: <IconSprout />,
         title: 'Jornada Reprodutiva',
@@ -137,13 +131,12 @@ const Modelo2 = () => {
             <ScrollAnimation direction="up" delay={0.2}>
               <div className="hero-content">
                 <h1 className="hero-title">
-                  Cuidando da sua saude reprodutiva com ciencia e acolhimento
+                  Cuidando da sua saúde reprodutiva com ciência e acolhimento.
                 </h1>
                 <p className="hero-subtitle">
-                  Com <strong>excelência técnica</strong>,{' '}
-                  <strong>humanização</strong> e{' '}
-                  <strong>cuidado integral</strong>, acompanhamos sua jornada
-                  reprodutiva com dedicação e empatia.
+                  A <strong>medicina reprodutiva</strong>  é, acima de tudo,{' '}
+                  sobre dar às pessoas o <strong> poder de escolha</strong>{' '}
+                  sobre a sua <strong>própria história</strong>.
                 </p>
                 <div className="hero-buttons">
                   <motion.a
@@ -225,13 +218,8 @@ const Modelo2 = () => {
         <div className="container">
           <ScrollAnimation direction="up" delay={0.1}>
             <div className="section-header">
-              <span className="section-label">Nossos Tratamentos</span>
-              <h2 className="section-title">Areas de Atuação</h2>
-              <p className="section-intro">
-                Especializada em ginecologia e reprodução humana, oferecemos
-                atendimento personalizado para cuidar da sua saúde reprodutiva,
-                com foco em tratamentos de fertilidade e bem-estar ginecológico.
-              </p>
+              <span className="section-label">Tratamentos Realizados</span>
+              <h2 className="section-title">Áreas de Atuação</h2>
             </div>
           </ScrollAnimation>
 
@@ -283,16 +271,9 @@ const Modelo2 = () => {
           <ScrollAnimation direction="up" delay={0.1}>
             <div className="section-header">
               <span className="section-label">
-                O que dizem nossos pacientes
+                O que dizem os pacientes
               </span>
               <h2 className="section-title">Depoimentos</h2>
-              <p className="section-intro">
-                Atendo mulheres e casais que buscam investigação e tratamento da
-                infertilidade, oferecendo acompanhamento individualizado e
-                cuidado fundamentado nas melhores evidências científicas. Meu
-                propósito é oferecer uma consulta precisa, acolhedora e guiada
-                pela ciência.
-              </p>
             </div>
           </ScrollAnimation>
 
@@ -358,11 +339,7 @@ const Modelo2 = () => {
                   <div className="visual-content">
                     <h3>Experiência</h3>
                     <p>
-                      Sou médica ginecologista formada pelo Hospital de Clínicas
-                      da UFPR. Minha atuação abrange desde o cuidado
-                      ginecológico geral até o acompanhamento em reprodução
-                      assistida, sempre valorizando a diversidade e todos os
-                      projetos familiares.
+                      Ginecologista formada pelo Hospital de Clínicas da UFPR e com pós-graduação em Reprodução Humana pelo Hospital Sírio-Libanês, dedico a minha carreira a duas grandes missões: ajudar mulheres a preservarem a sua fertilidade para que o tempo não seja um limite aos seus sonhos, e guiar casais através da ciência avançada para superar os desafios da infertilidade. 
                     </p>
                   </div>
                 </div>
@@ -403,25 +380,35 @@ const Modelo2 = () => {
 
                 <ScrollAnimation direction="left" delay={0.4}>
                   <div className="qualificacao-card">
-                    <h4>Atuação Profissional</h4>
-                    <p>Triamare Reprodução Humana | Park Shopping Barigui</p>
-                    <p>R. Prof. Pedro Viriato Parigot de Souza, 600, Piso L3</p>
-                    <p>Mossunguê, Curitiba/PR - CEP 81200-100</p>
+                    <h4>Local de Atendimento</h4>
+                        <div className="local-atendimento">
+                          <strong>Centro Médico do Park Shopping Barigui</strong>
+                          <p>
+                            R. Prof. Pedro Viriato Parigot de Souza, 600, Piso L3<br />
+                            Mossunguê, Curitiba-PR
+                          </p>
+                        </div>
+
+                        <div className="local-atendimento">
+                          <strong>ECO Medical Center</strong>
+                          <p>
+                            R. Goiás, 70, 5º andar<br />
+                            Água Verde, Curitiba-PR
+                          </p>
+                        </div>
                     <p className="since">Teleconsulta disponível</p>
                   </div>
                 </ScrollAnimation>
 
                 <ScrollAnimation direction="right" delay={0.5}>
                   <div className="qualificacao-card">
-                    <h4>Especializações e Áreas de Atuação</h4>
+                    <h4>Áreas de Atuação</h4>
                     <ul>
                       <li>Infertilidade e Infertilidade Feminina</li>
                       <li>Reprodução Humana Assistida</li>
                       <li>Abortamento de Repetição</li>
                       <li>Síndrome do Ovário Policístico (SOP)</li>
-                      <li>Distúrbios Menstruais</li>
                       <li>Endometriose</li>
-                      <li>Menopausa e Menopausa Precoce</li>
                       <li>Consulta Pré-concepcional</li>
                     </ul>
                   </div>

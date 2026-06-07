@@ -36,36 +36,34 @@ const Modelo2 = () => {
         icon: <IconStethoscope />,
         title: 'Investigação de infertilidade ',
         description:
-          'Respostas claras para o desejo de engravidar. Quando a gestação não acontece naturalmente, o primeiro passo não é o tratamento, mas o diagnóstico preciso. Realizamos uma investigação do casal, unindo exames de reserva ovariana, permeabilidade tubária e fator masculino. O objetivo é identificar a causa e traçar a estratégia mais eficaz e segura para o seu caso.',
-      },
+          'Respostas claras para o desejo de engravidar. Quando a gestação não acontece naturalmente, o primeiro passo não é o tratamento, mas o diagnóstico preciso. Realizo uma investigação do casal, unindo exames de reserva ovariana, permeabilidade tubária e fator masculino. O objetivo é identificar a causa e traçar a estratégia mais eficaz e segura para o seu caso.',
+      whatsappMessage:
+        'Olá! Gostaria de agendar uma consulta para investigação de infertilidade.',
+    },
       {
         icon: <IconSnowflake />,
         title: 'Preservação da fertilidade',
         description:
-          'O seu futuro no seu tempo. A biologia tem um cronograma, mas a sua vida também. Por meio da técnica de vitrificação, preservamos a qualidade dos seus óvulos hoje para que a decisão de ser mãe aconteça quando você se sentir pronta — seja por motivos de carreira, escolha pessoal ou saúde. O congelamento de óvulos é a liberdade de não precisar apressar os seus sonhos.',
-      },
+          'O seu futuro no seu tempo. A biologia tem um cronograma, mas a sua vida também. Por meio da técnica de vitrificação, preservo a qualidade dos seus óvulos hoje para que a decisão de ser mãe aconteça quando você se sentir pronta — seja por motivos de carreira, escolha pessoal ou saúde. O congelamento de óvulos é a liberdade de não precisar apressar os seus sonhos.',
+      whatsappMessage:
+        'Olá! Gostaria de agendar uma consulta sobre preservação da fertilidade.',
+    },
       {
         icon: <IconSyringe />,
         title: 'Gestação em casais homoafetivos',
         description:
-          'Novos caminhos para formar a sua família. A ciência existe para tornar possíveis todas as formas de amor. Através de protocolos personalizados para casais homoafetivos femininos (como a técnica ROPA) e masculinos (com doação de óvulos e útero de substituição), desenhamos o percurso necessário para que o sonho da parentalidade se torne realidade.',      
+          'Novos caminhos para formar a sua família. A ciência existe para tornar possíveis todas as formas de amor. Através de protocolos personalizados para casais homoafetivos femininos (como a técnica ROPA) e masculinos (com doação de óvulos e útero de substituição), desenho o percurso necessário para que o sonho da parentalidade se torne realidade.',      
+              whatsappMessage:
+        'Olá! Gostaria de agendar uma consulta sobre gestação em casais homoafetivos.',
+    },
+      {
+          icon: <IconUsersRound />,
+          title: 'Reprodução Assistida em Casais Homoafetivos',
+          description:
+            'Construindo famílias com acolhimento e ciência. Cada história de parentalidade é única, e a reprodução assistida oferece caminhos seguros para transformar esse sonho em realidade. Disponibilizo técnicas como a inseminação intrauterina (IIU), fertilização in vitro (FIV) e a técnica ROPA, que permite que casais femininos compartilhem a gestação de forma especial. Com um planejamento individualizado, desenvolvo o tratamento mais adequado para que o projeto da sua família aconteça com segurança, respeito e cuidado.',
+          whatsappMessage:
+            'Olá! Gostaria de agendar uma consulta sobre reprodução assistida para casais homoafetivos.',
         },
-      {
-        icon: <IconSprout />,
-        title: 'Jornada Reprodutiva',
-        description:
-          'Oferecemos não apenas tratamentos, mas também acolhimento, escuta e suporte para os desafios emocionais da infertilidade.',
-        details:
-          'Entendemos que a jornada reprodutiva vai além dos tratamentos. Oferecemos acolhimento, escuta ativa e suporte emocional para enfrentar os desafios da infertilidade, cuidando de você de forma integral.',
-      },
-      {
-        icon: <IconUsersRound />,
-        title: 'Reprodução Assistida em Casais Homoafetivos',
-        description:
-          'Suporte especializado para casais homoafetivos, incluindo IIU, FIV e técnica ROPA para casais femininos compartilharem a gestação.',
-        details:
-          'Oferecemos suporte especializado e acolhedor para casais homoafetivos, com técnicas como inseminação intrauterina (IIU), fertilização in vitro (FIV) e a técnica ROPA, que permite que casais femininos compartilhem a gestação de forma única e especial.',
-      },
     ],
     [],
   )
@@ -97,13 +95,13 @@ const Modelo2 = () => {
       {/* Header */}
       <header className="header">
         <div className="container">
-          <div className="logo">Dr. Beatriz Pyrich</div>
+          <div className="logo">Dra. Beatriz Pyrich</div>
           <nav className="nav" aria-label="Navegação principal">
             <a href="#home" aria-label="Ir para seção inicial">
               Home
             </a>
             <a href="#tratamentos" aria-label="Ver áreas de atuação">
-              Areas de Atuação
+              Áreas de Atuação
             </a>
             <a href="#depoimentos" aria-label="Ver depoimentos de pacientes">
               Depoimentos
@@ -251,8 +249,17 @@ const Modelo2 = () => {
                 <p className="detail-full">
                   {tratamentos[activeTreatment].details}
                 </p>
-                <button className="detail-button">Saiba mais</button>
-              </div>
+                  <a
+                    href={`https://wa.me/554184319896?text=${encodeURIComponent(
+                    `Olá! gostaria de agendar uma consulta sobre ${tratamentos[activeTreatment].title.toLowerCase()}. Poderiam me informar os horários disponíveis?`
+                  )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="detail-button"
+                  >
+                    Agendar Minha Consulta
+                  </a> 
+               </div>
               <div className="detail-visual">
                 <div className="visual-card">
                   <div className="visual-icon">
@@ -381,22 +388,45 @@ const Modelo2 = () => {
                 <ScrollAnimation direction="left" delay={0.4}>
                   <div className="qualificacao-card">
                     <h4>Local de Atendimento</h4>
-                        <div className="local-atendimento">
+                      <div className="local-atendimento">
+                        <div className="local-conteudo">
                           <strong>Centro Médico do Park Shopping Barigui</strong>
                           <p>
-                            R. Prof. Pedro Viriato Parigot de Souza, 600, Piso L3<br />
+                            R. Prof. Pedro Viriato Parigot de Souza, 600, Piso L3
+                            <br />
                             Mossunguê, Curitiba-PR
                           </p>
                         </div>
 
-                        <div className="local-atendimento">
+                        <div className="local-mapa">
+                          <iframe
+                            title="Centro Médico Park Shopping Barigui"
+                            src="https://www.google.com/maps?q=Park+Shopping+Barigui+Curitiba&output=embed"
+                            loading="lazy"
+                            allowFullScreen
+                          />
+                        </div>
+                      </div>
+
+                      <div className="local-atendimento">
+                        <div className="local-conteudo">
                           <strong>ECO Medical Center</strong>
                           <p>
-                            R. Goiás, 70, 5º andar<br />
+                            R. Goiás, 70, 5º andar
+                            <br />
                             Água Verde, Curitiba-PR
                           </p>
                         </div>
-                    <p className="since">Teleconsulta disponível</p>
+
+                        <div className="local-mapa">
+                          <iframe
+                            title="ECO Medical Center"
+                            src="https://www.google.com/maps?q=ECO+Medical+Center+Curitiba&output=embed"
+                            loading="lazy"
+                            allowFullScreen
+                          />
+                        </div>
+                      </div>
                   </div>
                 </ScrollAnimation>
 
